@@ -4,6 +4,7 @@ import 'package:projet/screens/home_screen.dart';
 import 'package:projet/screens/profile_screen.dart';
 import 'package:projet/screens/settings_screen.dart';
 import 'package:projet/screens/theme_page.dart';
+import 'package:projet/screens/upload_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -55,6 +56,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     SettingsScreen(),
     HomeScreen(),
+    //UploadPage(videoPath: "videoPath"),
     ProfileScreen(),
   ];
 

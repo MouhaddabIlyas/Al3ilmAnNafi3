@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:projet/constants.dart';
+import 'package:projet/screens/upload_page.dart';
 
 class ProfileScreen extends StatelessWidget {
   // Upload To App function (Incomplete)
   final picker = ImagePicker();
-  Future<void> pickVideo() async {
+  Future<void> pickVideo(BuildContext context) async {
     final XFile? pickedFile =
         await picker.pickVideo(source: ImageSource.gallery);
     if (pickedFile != null) {
       print('Picked video: ${pickedFile.path}');
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => UploadPage(videoPath: pickedFile.path),
+        ),
+      );
     } else {
-      print('No video selected.');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Aucune vidéo selectée')),
+      );
     }
   }
 
@@ -20,7 +29,8 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [ Container(
+        children: [
+          Container(
             child: Text(
               "Mon Profil",
               style: TextStyle(
@@ -89,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              pickVideo();
+              pickVideo(context);
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 35),

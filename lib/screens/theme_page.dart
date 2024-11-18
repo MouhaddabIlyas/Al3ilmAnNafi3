@@ -35,7 +35,7 @@ class ThemePage extends StatelessWidget {
                     child: Text(
                       theme,
                       style: TextStyle(
-                        fontSize: 36,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                         backgroundColor: Colors.black.withOpacity(0.5),
