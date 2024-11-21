@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 Color green = const Color(0xFF029933);
 List<String> themes = const [
   "Tawhid",
@@ -10,7 +9,7 @@ List<String> themes = const [
   "Hajj",
   "Le Coran",
   "La Sunna",
-  "Messager et Prophète",
+  "Messagers et Prophètes",
   "Sectes",
   "Les Compagnons",
   "Les Savants",
@@ -24,5 +23,37 @@ List<String> themes = const [
   "Les gens du livre",
   "Les noms d’Allah",
   "Fiqh",
-  "Les Madhab",
+  "Les Madhabs",
+  "Les femmes",
+  "Le voyage",
+  "Signe fin des temps",
+  "",
+];
+
+List<String> scholars = const [
+  "Cheikh Abdesamad Karoum / الشيخ عبد الصمد كروم",
+  "Cheikh Abderrazak Al Badr / الشيخ عبد الرزاق البدر",
+  "Cheikh Abdelkarim Al Khoudayr / الشيخ عبد الكريم الخضير",
+  "Cheikh Abdel Mouhsin Al Abbad Al Badr / الشيخ عبد المحسن العباد البدر",
+  "Cheikh Abdellah Al Idrissi / شيخ عبدالله الدراسي",
+  "Cheikh Abdellah Al Qussayir / شيخ عبد الله القصير",
+  "Cheikh Al Albani / الشيخ الألباني",
+  "Cheikh Al Fawzan / شيخ الفوزان",
+  "Cheikh Al Uthaymin / شيخ العثيمين",
+  "Cheikh Ali Cheikh / شيخ علي شيخ",
+  "Cheikh As Souhaymi / شيخ السحيمي",
+  "Cheikh Aziz bin Farhan Al Anizi / الشيخ عزيز بن فرحان العنزي",
+  "Cheikh Faleh Mundakar / شيخ فلح مندكار",
+  "Cheikh Faqiri / شيخ فقيري",
+  "Cheikh Ibrahim Al Mouhaymid / الشيخ إبراهيم المحيميد",
+  "Cheikh Mohamed Ghaïth / شيخ محمد غيث",
+  "Cheikh Raslan / شيخ عسلان",
+  "Cheikh Rouhayli / شيخ الرحيلي",
+  "Cheikh Saad Ibn Nasser Ash Shathry / الشيخ سعد بن ناصر الشثرى",
+  "Cheikh Saleh Al Luhaydan / الشيخ صالح اللحيدان",
+  "Cheikh Saleh Al Usaymi / الشيخ صالح العصيمي",
+  "Cheikh Saleh Sindi / شيخ صالح سندي",
+  "Cheikh Salih Ali Cheikh / شيخ صالح علي شيخ",
+  "Cheikh Salmane At Tawil / شيخ سلمان الطويلة",
+  "Cheikh Shuwayer / شيخ الشويعر"
 ];

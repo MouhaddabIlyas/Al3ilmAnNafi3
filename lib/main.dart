@@ -93,6 +93,20 @@ class MyApp extends StatelessWidget {
             theme: "Les Madhab",
             videosPath: "",
             imagePath: "assets/images/22.jpg"),
+        '/page23': (context) => ThemePage(
+            theme: "Les femmes",
+            videosPath: "",
+            imagePath: "assets/images/23.jpg"),
+        '/page24': (context) => ThemePage(
+            theme: "Le voyage",
+            videosPath: "",
+            imagePath: "assets/images/24.jpg"),
+        '/page25': (context) => ThemePage(
+            theme: "Signe fin des temps",
+            videosPath: "",
+            imagePath: "assets/images/25.jpg"),
+        '/page26': (context) => ThemePage(
+            theme: "", videosPath: "", imagePath: "assets/images/26.jpg"),
       },
       debugShowCheckedModeBanner: false,
       title: 'Al 3ilm An Nafi3',

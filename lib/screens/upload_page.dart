@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:projet/constants.dart';
 import 'dart:io';
+import 'package:projet/constants.dart';
 
 class UploadPage extends StatefulWidget {
   final String videoPath;
@@ -18,6 +18,7 @@ class _UploadPageState extends State<UploadPage> {
   final FocusNode _titleFocusNode = FocusNode();
   List<String> selectedThemes = [];
   File? _thumbnail;
+  String? selectedScholar;
 
   @override
   void dispose() {
@@ -60,13 +61,16 @@ class _UploadPageState extends State<UploadPage> {
                   ),
                 ),
 
+                // Title Input
                 TextFormField(
                   controller: _titleController,
                   focusNode: _titleFocusNode,
                   decoration: InputDecoration(
                     labelText: 'Titre',
                     labelStyle: TextStyle(
-                      color: _titleFocusNode.hasFocus ? green : Colors.black,
+                      color: _titleFocusNode.hasFocus
+                          ? Colors.green
+                          : Colors.black,
                     ),
                     border: const OutlineInputBorder(),
                     focusedBorder: const OutlineInputBorder(
@@ -96,7 +100,12 @@ class _UploadPageState extends State<UploadPage> {
                   runSpacing: 8.0,
                   children: themes.map((theme) {
                     return ChoiceChip(
-                      label: Text(theme),
+                      label: Text(
+                        theme,
+                        style: const TextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
                       selected: selectedThemes.contains(theme),
                       onSelected: (selected) {
                         setState(() {
@@ -109,7 +118,7 @@ class _UploadPageState extends State<UploadPage> {
                           }
                         });
                       },
-                      selectedColor: green,
+                      selectedColor: Colors.green,
                       labelStyle: TextStyle(
                         color: selectedThemes.contains(theme)
                             ? Colors.white
@@ -120,18 +129,50 @@ class _UploadPageState extends State<UploadPage> {
                 ),
                 const SizedBox(height: 20),
 
-                // Thumbnail Upload
+                // Scholar Selector
+                const Text('Sélectionnez 1 Cheikh',
+                    style: TextStyle(fontSize: 16)),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 8.0,
+                  runSpacing: 8.0,
+                  children: scholars.map((scholar) {
+                    return ChoiceChip(
+                      label: Text(
+                        scholar,
+                        style: const TextStyle(
+                          fontSize: 10,
+                        ),
+                      ),
+                      selected: selectedScholar == scholar,
+                      onSelected: (selected) {
+                        setState(() {
+                          selectedScholar = selected
+                              ? scholar
+                              : null; // Only one scholar can be selected
+                        });
+                      },
+                      selectedColor: Colors.green,
+                      labelStyle: TextStyle(
+                        color: selectedScholar == scholar
+                            ? Colors.white
+                            : Colors.black,
+                      ),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(height: 20),
+
+                // Thumbnail Selector
                 const Text('Selectionnez une image pour la vidéo',
                     style: TextStyle(fontSize: 16)),
                 const SizedBox(height: 10),
                 Center(
-                  // Centering the image picker widget
                   child: GestureDetector(
                     onTap: _pickImage,
                     child: Container(
-                      height: 200,
-                      width: MediaQuery.of(context).size.width *
-                          0.8, // Make it a bit narrower
+                      height: MediaQuery.of(context).size.width * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.8,
                       decoration: BoxDecoration(
                         color: Colors.grey[200],
                         borderRadius: BorderRadius.circular(8),
@@ -143,8 +184,7 @@ class _UploadPageState extends State<UploadPage> {
                               borderRadius: BorderRadius.circular(8),
                               child: Image.file(
                                 _thumbnail!,
-                                fit: BoxFit
-                                    .cover, // Ensures full image is displayed
+                                fit: BoxFit.cover,
                               ),
                             ),
                     ),
@@ -158,12 +198,13 @@ class _UploadPageState extends State<UploadPage> {
                     onPressed: () {
                       if (_formKey.currentState!.validate() &&
                           selectedThemes.isNotEmpty &&
-                          _thumbnail != null) {
+                          _thumbnail != null &&
+                          selectedScholar != null) {
                         // Proceed to upload video and thumbnail
-                        // You can send the data here
                         print(
                             'Uploading video with title: ${_titleController.text}');
                         print('Selected Themes: $selectedThemes');
+                        print('Selected Scholar: $selectedScholar');
                         print('Thumbnail Path: ${_thumbnail!.path}');
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -174,7 +215,7 @@ class _UploadPageState extends State<UploadPage> {
                       }
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(green),
+                      backgroundColor: MaterialStateProperty.all(Colors.green),
                     ),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(

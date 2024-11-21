@@ -60,7 +60,7 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
-                        children: List.generate(11, (index) {
+                        children: List.generate(13, (index) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
