@@ -71,7 +71,9 @@ class ProfileScreen extends StatelessWidget {
             child: const Text("IlyasMH25"),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed('/video_page');
+            },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 35),
               padding: const EdgeInsets.all(20),

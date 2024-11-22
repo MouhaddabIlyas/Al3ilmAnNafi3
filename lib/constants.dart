@@ -28,7 +28,7 @@ List<String> themes = const [
   "Les femmes",
   "Le voyage",
   "Signe fin des temps",
-  "",
+  "Adkars",
 ];
 
 List<String> scholars = const [

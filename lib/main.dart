@@ -3,11 +3,13 @@ import 'package:projet/constants.dart';
 import 'package:projet/screens/home_screen.dart';
 import 'package:projet/screens/login_screen.dart';
 import 'package:projet/screens/profile_screen.dart';
+import 'package:projet/screens/register_screen.dart';
 import 'package:projet/screens/settings_screen.dart';
 import 'package:projet/screens/splash_screen.dart';
 import 'package:projet/screens/terms_conditions_page.dart';
 import 'package:projet/screens/theme_page.dart';
 import 'package:projet/screens/upload_page.dart';
+import 'package:projet/screens/video_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => MainPage(),
         '/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(),
+        '/video_page': (context) => VideoPage(),
         '/page1': (context) => ThemePage(
             theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
         '/page2': (context) => ThemePage(
@@ -107,7 +111,7 @@ class MyApp extends StatelessWidget {
             videosPath: "",
             imagePath: "assets/images/25.jpg"),
         '/page26': (context) => ThemePage(
-            theme: "", videosPath: "", imagePath: "assets/images/26.jpg"),
+            theme: "Adkars", videosPath: "", imagePath: "assets/images/26.jpg"),
       },
       debugShowCheckedModeBanner: false,
       title: 'Al 3ilm An Nafi3',

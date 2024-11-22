@@ -20,6 +20,9 @@ class _UploadPageState extends State<UploadPage> {
   File? _thumbnail;
   String? selectedScholar;
 
+  bool isThemeExpanded = false;
+  bool isScholarExpanded = false;
+
   @override
   void dispose() {
     _titleFocusNode.dispose();
@@ -93,74 +96,119 @@ class _UploadPageState extends State<UploadPage> {
                 const SizedBox(height: 20),
 
                 // Theme Selector
-                const Text('Selectionnez entre 1 et 3 thèmes',
-                    style: TextStyle(fontSize: 16)),
-                Wrap(
-                  spacing: 8.0,
-                  runSpacing: 8.0,
-                  children: themes.map((theme) {
-                    return ChoiceChip(
-                      label: Text(
-                        theme,
-                        style: const TextStyle(
-                          fontSize: 10,
-                        ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    // Theme Selector text
+                    const Expanded(
+                      child: Text(
+                        'Selectionnez 1 à 3 thèmes',
+                        style: TextStyle(fontSize: 16),
+                        overflow: TextOverflow
+                            .ellipsis,
                       ),
-                      selected: selectedThemes.contains(theme),
-                      onSelected: (selected) {
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        isThemeExpanded
+                            ? Icons.arrow_drop_up
+                            : Icons.arrow_drop_down,
+                        size: 30,
+                      ),
+                      onPressed: () {
                         setState(() {
-                          if (selected) {
-                            if (selectedThemes.length < 3) {
-                              selectedThemes.add(theme);
-                            }
-                          } else {
-                            selectedThemes.remove(theme);
-                          }
+                          isThemeExpanded = !isThemeExpanded;
                         });
                       },
-                      selectedColor: Colors.green,
-                      labelStyle: TextStyle(
-                        color: selectedThemes.contains(theme)
-                            ? Colors.white
-                            : Colors.black,
-                      ),
-                    );
-                  }).toList(),
+                    ),
+                  ],
                 ),
+                if (isThemeExpanded)
+                  Wrap(
+                    spacing: 8.0,
+                    runSpacing: 8.0,
+                    children: themes.map((theme) {
+                      return ChoiceChip(
+                        label: Text(
+                          theme,
+                          style: const TextStyle(fontSize: 10),
+                        ),
+                        selected: selectedThemes.contains(theme),
+                        onSelected: (selected) {
+                          setState(() {
+                            if (selected) {
+                              if (selectedThemes.length < 3) {
+                                selectedThemes.add(theme);
+                              }
+                            } else {
+                              selectedThemes.remove(theme);
+                            }
+                          });
+                        },
+                        selectedColor: Colors.green,
+                        labelStyle: TextStyle(
+                          color: selectedThemes.contains(theme)
+                              ? Colors.white
+                              : Colors.black,
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 const SizedBox(height: 20),
 
                 // Scholar Selector
-                const Text('Sélectionnez 1 Cheikh',
-                    style: TextStyle(fontSize: 16)),
-                const SizedBox(height: 10),
-                Wrap(
-                  spacing: 8.0,
-                  runSpacing: 8.0,
-                  children: scholars.map((scholar) {
-                    return ChoiceChip(
-                      label: Text(
-                        scholar,
-                        style: const TextStyle(
-                          fontSize: 10,
-                        ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    // Scholar Selector text
+                    const Expanded(
+                      child: Text(
+                        'Sélectionnez 1 Cheikh',
+                        style: TextStyle(fontSize: 16),
+                        overflow: TextOverflow
+                            .ellipsis,
                       ),
-                      selected: selectedScholar == scholar,
-                      onSelected: (selected) {
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        isScholarExpanded
+                            ? Icons.arrow_drop_up
+                            : Icons.arrow_drop_down,
+                        size: 30,
+                      ),
+                      onPressed: () {
                         setState(() {
-                          selectedScholar = selected
-                              ? scholar
-                              : null;
+                          isScholarExpanded = !isScholarExpanded;
                         });
                       },
-                      selectedColor: Colors.green,
-                      labelStyle: TextStyle(
-                        color: selectedScholar == scholar
-                            ? Colors.white
-                            : Colors.black,
-                      ),
-                    );
-                  }).toList(),
+                    ),
+                  ],
                 ),
+                if (isScholarExpanded)
+                  Wrap(
+                    spacing: 8.0,
+                    runSpacing: 8.0,
+                    children: scholars.map((scholar) {
+                      return ChoiceChip(
+                        label: Text(
+                          scholar,
+                          style: const TextStyle(fontSize: 10),
+                        ),
+                        selected: selectedScholar == scholar,
+                        onSelected: (selected) {
+                          setState(() {
+                            selectedScholar = selected ? scholar : null;
+                          });
+                        },
+                        selectedColor: Colors.green,
+                        labelStyle: TextStyle(
+                          color: selectedScholar == scholar
+                              ? Colors.white
+                              : Colors.black,
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 const SizedBox(height: 20),
 
                 // Thumbnail Selector

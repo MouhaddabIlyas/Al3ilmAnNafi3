@@ -39,8 +39,7 @@ class _LoginPageState extends State<LoginPage> {
       });
       showDialog(
         context: context,
-        barrierDismissible:
-            true,
+        barrierDismissible: true,
         builder: (BuildContext context) {
           return Dialog(
             backgroundColor: Colors.transparent,
@@ -124,13 +123,22 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const Text(
                   "Nouvel utilisateur? ",
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 11,
+                  ),
                 ),
                 GestureDetector(
-                  onTap: _createAccount,
+                  onTap: //_createAccount,
+                      () {
+                    Navigator.pushReplacementNamed(context, '/register');
+                  },
                   child: Text(
                     'Créer un compte!',
-                    style: TextStyle(color: green),
+                    style: TextStyle(
+                      color: green,
+                      fontSize: 11,
+                    ),
                   ),
                 ),
               ],

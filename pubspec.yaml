@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   image_picker: ^0.8.5+3
+  chewie: ^1.7.5
+  video_player: ^2.8.5
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +65,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/profiles/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

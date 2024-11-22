@@ -16,6 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void _navigateToHome() {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, '/login');
+      //Navigator.pushReplacementNamed(context, '/video_page');
     });
   }
 
