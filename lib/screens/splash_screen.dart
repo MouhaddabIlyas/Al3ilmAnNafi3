@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'dart:async';
-
-import 'package:projet/constants.dart'; // for Timer
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -30,10 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Upper image (transparent)
             Image.asset('assets/images/transparent.png'),
-            const SizedBox(height: 20), // Space between the images
-            // Lower image (aya)
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.only(
                 left: 30.0,

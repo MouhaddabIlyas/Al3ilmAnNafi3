@@ -5,6 +5,7 @@ import 'package:projet/screens/login_screen.dart';
 import 'package:projet/screens/profile_screen.dart';
 import 'package:projet/screens/settings_screen.dart';
 import 'package:projet/screens/splash_screen.dart';
+import 'package:projet/screens/terms_conditions_page.dart';
 import 'package:projet/screens/theme_page.dart';
 import 'package:projet/screens/upload_page.dart';
 
@@ -124,7 +125,8 @@ class _MainPageState extends State<MainPage> {
   int _currentIndex = 1;
 
   final List<Widget> _pages = [
-    SettingsScreen(),
+    TermsAndConditionsPage(),
+    //SettingsScreen(), hadi ghankhod mnha le showDialog method
     HomeScreen(),
     //UploadPage(videoPath: "videoPath"),
     ProfileScreen(),
@@ -150,7 +152,7 @@ class _MainPageState extends State<MainPage> {
         onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.library_books),
             label: 'Settings',
           ),
           BottomNavigationBarItem(

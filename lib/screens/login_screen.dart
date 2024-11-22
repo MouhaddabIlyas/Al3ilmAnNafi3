@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet/constants.dart';
+import 'package:projet/screens/terms_conditions_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -12,6 +13,8 @@ class _LoginPageState extends State<LoginPage> {
   final FocusNode _usernameFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
 
+  bool _isDialogOpen = false;
+
   @override
   void dispose() {
     _usernameController.dispose();
@@ -22,16 +25,37 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _login(BuildContext context) {
-    // Dismiss keyboard by unfocusing any focused text field
     FocusScope.of(context).requestFocus(FocusNode());
 
-    // Check if the fields are empty and show a snackbar if so
     if (_usernameController.text.isEmpty || _passwordController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Veuillez remplir tous les champs.')),
       );
     } else {
       Navigator.pushReplacementNamed(context, '/home');
+      // Dialog TEST
+      setState(() {
+        _isDialogOpen = true;
+      });
+      showDialog(
+        context: context,
+        barrierDismissible:
+            true,
+        builder: (BuildContext context) {
+          return Dialog(
+            backgroundColor: Colors.transparent,
+            child: Container(
+              color: Colors.white,
+              child: TermsAndConditionsPage(),
+            ),
+          );
+        },
+      ).then((_) {
+        setState(() {
+          _isDialogOpen = false;
+        });
+      });
+      // Dialog TEST END
     }
   }
 
@@ -55,7 +79,6 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            // Image at the top
             Image.asset('assets/images/transparent.png', height: 150),
 
             // Username Field
@@ -121,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                 backgroundColor: Colors.orange,
                 minimumSize: const Size(double.infinity, 50),
                 shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero, // No rounded corners
+                  borderRadius: BorderRadius.zero,
                 ),
               ),
               child: const Text('Se Connecter',

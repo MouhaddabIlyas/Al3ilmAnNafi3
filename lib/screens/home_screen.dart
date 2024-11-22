@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:projet/constants.dart';
 import 'package:projet/widgets/clickable_theme_item.dart';
 
-// Custom ScrollBehavior to change the overscroll glow color to orange
 class CustomScrollBehavior extends ScrollBehavior {
   @override
   Widget buildViewportChrome(
@@ -11,7 +10,6 @@ class CustomScrollBehavior extends ScrollBehavior {
     AxisDirection axisDirection,
     ScrollPhysics physics,
   ) {
-    // Return a custom overscroll indicator with orange glow color
     return GlowingOverscrollIndicator(
       axisDirection: axisDirection,
       color: Colors.white,
@@ -26,7 +24,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: green,
       body: ScrollConfiguration(
-        behavior: CustomScrollBehavior(),  // Apply custom scroll behavior here
+        behavior: CustomScrollBehavior(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

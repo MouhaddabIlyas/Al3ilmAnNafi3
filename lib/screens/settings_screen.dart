@@ -1,11 +1,60 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
-class SettingsScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:projet/screens/terms_conditions_page.dart';
+
+class SettingsScreen extends StatefulWidget {
+  @override
+  _SettingsScreenState createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  bool _isDialogOpen = false;
+
+  void _showTermsAndConditions(BuildContext context) {
+    setState(() {
+      _isDialogOpen = true;
+    });
+
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.transparent,
+          child: Container(
+            color: Colors.white,
+            child: TermsAndConditionsPage(),
+          ),
+        );
+      },
+    ).then((_) {
+      setState(() {
+        _isDialogOpen = false;
+      });
+    });
+    // END COPY HERE
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Settings Screen'),
+      body: Stack(
+        children: [
+          Center(
+            child: ElevatedButton(
+              onPressed: () => _showTermsAndConditions(context),
+              child: const Text("Show Terms & Conditions"),
+            ),
+          ),
+          if (_isDialogOpen)
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 4.0, sigmaY: 4.0),
+              child: Container(
+                color: Colors.black.withOpacity(0.3),
+              ),
+            ),
+        ],
       ),
     );
   }

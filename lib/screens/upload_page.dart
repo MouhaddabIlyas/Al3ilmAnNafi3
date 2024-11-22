@@ -149,7 +149,7 @@ class _UploadPageState extends State<UploadPage> {
                         setState(() {
                           selectedScholar = selected
                               ? scholar
-                              : null; // Only one scholar can be selected
+                              : null;
                         });
                       },
                       selectedColor: Colors.green,
