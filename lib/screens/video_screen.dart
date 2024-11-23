@@ -110,6 +110,7 @@ class _VideoPageState extends State<VideoPage> {
                 CircleAvatar(
                   radius: 25,
                   backgroundImage: AssetImage('assets/images/profiles/profile1.jpg'),
+                  backgroundColor: Colors.black,
                 ),
                 
                 // Play/Pause button (centered)

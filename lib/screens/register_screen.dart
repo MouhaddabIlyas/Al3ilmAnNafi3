@@ -113,6 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: CircleAvatar(
                     backgroundImage: AssetImage(
                         'assets/images/profiles/profile${index + 1}.jpg'),
+                        backgroundColor: Colors.white,
                   ),
                 );
               },
@@ -178,9 +179,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 decoration: InputDecoration(
                   labelText: 'Mot de passe',
                   labelStyle: TextStyle(
-                    color: _passwordFocusNode.hasFocus
-                        ? Colors.orange
-                        : Colors.black,
+                    color: Colors.black,
                   ),
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.orange),
@@ -189,7 +188,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     icon: Icon(
                       _isPasswordVisible
                           ? Icons.visibility
-                          : Icons.visibility_off,
+                          : Icons.visibility_outlined,
                       color: Colors.grey,
                     ),
                     onPressed: () {
@@ -209,9 +208,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 decoration: InputDecoration(
                   labelText: 'Vérifier le mot de passe',
                   labelStyle: TextStyle(
-                    color: _passwordFocusNode.hasFocus
-                        ? Colors.orange
-                        : Colors.black,
+                    color: Colors.black,
                   ),
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.orange),
@@ -220,7 +217,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     icon: Icon(
                       _isVerifyPasswordVisible
                           ? Icons.visibility
-                          : Icons.visibility_off,
+                          : Icons.visibility_outlined,
                       color: Colors.grey,
                     ),
                     onPressed: () {
