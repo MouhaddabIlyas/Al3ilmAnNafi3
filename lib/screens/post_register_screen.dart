@@ -19,6 +19,7 @@ class PostRegisterPage extends StatelessWidget {
               const Text(
                 "سلام عليكم ورحمة الله وبركاته",
                 style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.right,
               ),
               const SizedBox(height: 10),
               const Center(

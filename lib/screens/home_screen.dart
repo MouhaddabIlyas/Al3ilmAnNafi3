@@ -58,32 +58,51 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
-                        children: List.generate(13, (index) {
-                          return Padding(
+                        children: [
+                          // Add the first ClickableThemeItem to be scrollable
+                          Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Flexible(
                                   child: ClickableThemeItem(
-                                    imagePath:
-                                        'assets/images/${index * 2 + 1}.jpg',
-                                    text: themes[index * 2],
-                                    routeName: '/page${index * 2 + 1}',
-                                  ),
-                                ),
-                                Flexible(
-                                  child: ClickableThemeItem(
-                                    imagePath:
-                                        'assets/images/${index * 2 + 2}.jpg',
-                                    text: themes[index * 2 + 1],
-                                    routeName: '/page${index * 2 + 2}',
+                                    imagePath: 'assets/images/1.jpg',
+                                    text: themes[0],
+                                    routeName: '/page1',
                                   ),
                                 ),
                               ],
                             ),
-                          );
-                        }),
+                          ),
+                          // Dynamically generate the other ClickableThemeItems
+                          ...List.generate(12, (index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Flexible(
+                                    child: ClickableThemeItem(
+                                      imagePath:
+                                          'assets/images/${index * 2 + 2}.jpg',
+                                      text: themes[index * 2 + 1],
+                                      routeName: '/page${index * 2 + 2}',
+                                    ),
+                                  ),
+                                  Flexible(
+                                    child: ClickableThemeItem(
+                                      imagePath:
+                                          'assets/images/${index * 2 + 3}.jpg',
+                                      text: themes[index * 2 + 2],
+                                      routeName: '/page${index * 2 + 3}',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          }),
+                        ],
                       ),
                     ),
                   ),

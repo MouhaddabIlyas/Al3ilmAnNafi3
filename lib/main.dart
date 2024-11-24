@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:projet/constants.dart';
 import 'package:projet/screens/home_screen.dart';
 import 'package:projet/screens/login_screen.dart';
@@ -6,6 +7,7 @@ import 'package:projet/screens/profile_screen.dart';
 import 'package:projet/screens/register_screen.dart';
 import 'package:projet/screens/settings_screen.dart';
 import 'package:projet/screens/splash_screen.dart';
+import 'package:projet/screens/tawhid_page.dart';
 import 'package:projet/screens/terms_conditions_page.dart';
 import 'package:projet/screens/theme_page.dart';
 import 'package:projet/screens/upload_page.dart';
@@ -15,7 +17,8 @@ import 'package:flutter/services.dart';
 
 void main() {
   // Lock the app to portrait mode only
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   runApp(const MyApp());
 }
@@ -31,8 +34,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/video_page': (context) => VideoPage(),
-        '/page1': (context) => ThemePage(
-            theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
+        '/page1': (context) => TawhidPage(), //ThemePage(
+            //theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
         '/page2': (context) => ThemePage(
             theme: "Prière", videosPath: "", imagePath: "assets/images/2.jpg"),
         '/page3': (context) => ThemePage(
@@ -54,7 +57,9 @@ class MyApp extends StatelessWidget {
             videosPath: "",
             imagePath: "assets/images/8.jpg"),
         '/page9': (context) => ThemePage(
-            theme: "Sectes", videosPath: "", imagePath: "assets/images/9.jpg"),
+            theme: "73 Sectes",
+            videosPath: "",
+            imagePath: "assets/images/9.jpg"),
         '/page10': (context) => ThemePage(
             theme: "Les Compagnons",
             videosPath: "",
@@ -64,7 +69,7 @@ class MyApp extends StatelessWidget {
             videosPath: "",
             imagePath: "assets/images/11.jpg"),
         '/page12': (context) => ThemePage(
-            theme: "Innovation",
+            theme: "Les innovations",
             videosPath: "",
             imagePath: "assets/images/12.jpg"),
         '/page13': (context) => ThemePage(
@@ -100,33 +105,35 @@ class MyApp extends StatelessWidget {
             videosPath: "",
             imagePath: "assets/images/20.jpg"),
         '/page21': (context) => ThemePage(
-            theme: "Fiqh", videosPath: "", imagePath: "assets/images/21.jpg"),
-        '/page22': (context) => ThemePage(
             theme: "Les Madhab",
+            videosPath: "",
+            imagePath: "assets/images/21.jpg"),
+        '/page22': (context) => ThemePage(
+            theme: "Les femmes",
             videosPath: "",
             imagePath: "assets/images/22.jpg"),
         '/page23': (context) => ThemePage(
-            theme: "Les femmes",
+            theme: "Le voyage",
             videosPath: "",
             imagePath: "assets/images/23.jpg"),
         '/page24': (context) => ThemePage(
-            theme: "Le voyage",
+            theme: "Signe fin des temps",
             videosPath: "",
             imagePath: "assets/images/24.jpg"),
         '/page25': (context) => ThemePage(
-            theme: "Signe fin des temps",
-            videosPath: "",
-            imagePath: "assets/images/25.jpg"),
-        '/page26': (context) => ThemePage(
-            theme: "Adkars", videosPath: "", imagePath: "assets/images/26.jpg"),
+            theme: "Adkars", videosPath: "", imagePath: "assets/images/25.jpg"),
       },
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        //textTheme: GoogleFonts.openSansTextTheme(Theme.of(context).textTheme),
+        // Important note : if you encounter problems with the text them use this version of google_fonts: ^5.0.0
+        textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
+      ),
       title: 'Al 3ilm An Nafi3',
       home: SplashScreen(),
     );
   }
 }
-
 
 class MainPage extends StatefulWidget {
   @override
