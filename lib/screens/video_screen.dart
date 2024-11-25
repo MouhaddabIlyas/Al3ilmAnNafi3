@@ -109,7 +109,7 @@ class _VideoPageState extends State<VideoPage> {
                 // CircleAvatar with image (left)
                 CircleAvatar(
                   radius: 25,
-                  backgroundImage: AssetImage('assets/images/profiles/profile1.jpg'),
+                  backgroundImage: AssetImage('assets/images/profiles/profile1.PNG'),
                   backgroundColor: Colors.black,
                 ),
                 

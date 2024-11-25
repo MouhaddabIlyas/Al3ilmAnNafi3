@@ -10,9 +10,9 @@ List<String> themes = const [
   "Hajj",
   "Le Coran",
   "La Sunna",
-  "Messagers et Prophètes",
+  "Prophètes",
   "73 Sectes",
-  "Les Compagnons",
+  "Compagnons",
   "Les Savants",
   "Les innovations",
   "La mort",
@@ -22,11 +22,11 @@ List<String> themes = const [
   "Les Anges",
   "Les Djinns",
   "Les gens du livre",
-  "Les noms d’Allah",
-  "Les Madhabs",
-  "Les femmes",
-  "Le voyage",
-  "Signe fin des temps",
+  "99 Noms",
+  "Femmes",
+  "Voyage",
+  "Signes",
+  "Adkars",
   "Adkars",
 ];
 
@@ -87,3 +87,5 @@ List<String> scholars = const [
   "Cheikh Wassiyullah Al Abbas / الشيخ وصي الله عباس",
   "Cheikh Zayd Al Madkhali / الشيخ زيد المدخلي"
 ];
+
+bool isAdmin = true;

@@ -106,13 +106,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   onTap: () {
                     setState(() {
                       _selectedProfilePicture =
-                          'assets/images/profiles/profile${index + 1}.jpg';
+                          'assets/images/profiles/profile${index + 1}.PNG';
                     });
                     Navigator.pop(context);
                   },
                   child: CircleAvatar(
                     backgroundImage: AssetImage(
-                        'assets/images/profiles/profile${index + 1}.jpg'),
+                        'assets/images/profiles/profile${index + 1}.PNG'),
                         backgroundColor: Colors.white,
                   ),
                 );

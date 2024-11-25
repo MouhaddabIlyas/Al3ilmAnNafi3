@@ -45,7 +45,18 @@ class _LoginPageState extends State<LoginPage> {
             backgroundColor: Colors.transparent,
             child: Container(
               color: Colors.white,
-              child: TermsAndConditionsPage(),
+              child: Container(
+                height: MediaQuery.of(context).size.height / 3,
+                child: Center(
+                  child: Text(
+                    "Félicitations!\nVotre vidéo a été approuvée!!!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                ),
+              ),
             ),
           );
         },

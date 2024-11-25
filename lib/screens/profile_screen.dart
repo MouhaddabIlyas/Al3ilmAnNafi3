@@ -51,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             child: const CircleAvatar(
               backgroundImage: AssetImage(
-                "assets/images/5.jpg",
+                "assets/images/small_profiles/profile1.PNG",
               ),
             ),
           ),

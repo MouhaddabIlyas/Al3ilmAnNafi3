@@ -33,6 +33,8 @@ class _UploadPageState extends State<UploadPage> {
   bool isThemeExpanded = false;
   bool isScholarExpanded = false;
 
+  bool isConsented = false;
+
   @override
   void dispose() {
     _titleFocusNode.dispose();
@@ -249,7 +251,26 @@ class _UploadPageState extends State<UploadPage> {
                     ),
                   ),
                   const SizedBox(height: 20),
-
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: isConsented,
+                        onChanged: (bool? newValue) {
+                          setState(() {
+                            isConsented = newValue!;
+                          });
+                        },
+                        activeColor: green,
+                      ),
+                      Flexible(
+                        child: Text(
+                          'Je confirme avoir lu les conditions pour pouvoir poster ma vidéo',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
                   // Submit Button
                   Center(
                     child: ElevatedButton(
@@ -257,24 +278,13 @@ class _UploadPageState extends State<UploadPage> {
                         if (_formKey.currentState!.validate() &&
                             selectedThemes.isNotEmpty &&
                             _thumbnail != null &&
-                            selectedScholar != null) {
+                            selectedScholar != null && isConsented) {
                           // Proceed to upload video and thumbnail
                           print(
                               'Uploading video with title: ${_titleController.text}');
                           print('Selected Themes: $selectedThemes');
                           print('Selected Scholar: $selectedScholar');
                           print('Thumbnail Path: ${_thumbnail!.path}');
-                          // LJADID
-                          showDialog(
-                            context: context,
-                            barrierDismissible: true,
-                            builder: (BuildContext context) {
-                              return Dialog(
-                                backgroundColor: Colors.transparent,
-                                child: KnowledgeTestPage(),
-                              );
-                            },
-                          );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
@@ -284,7 +294,8 @@ class _UploadPageState extends State<UploadPage> {
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.green),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.green),
                       ),
                       child: const Padding(
                         padding: EdgeInsets.symmetric(

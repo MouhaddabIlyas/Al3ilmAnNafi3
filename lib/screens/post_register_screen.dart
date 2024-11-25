@@ -57,26 +57,6 @@ class PostRegisterPage extends StatelessWidget {
                   color: green,
                 ),
               ),
-              const SizedBox(height: 20),
-              const Center(
-                child: Text(
-                  "Conditions",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.orange,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              const Text(
-                "Conditions à respecter :\n\n"
-                "🔺Interdiction de publier des vidéos de Fitna (terrorisme, sectarisme etc…)\n\n"
-                "🔺Pas de vidéo de plus de 3 minutes\n\n"
-                "🔺Au bout de 2 vidéos supprimées de votre compte vous serez banni de la plate-forme\n\n"
-                "⚠ Toute vidéo en contradiction avec le Coran, la sunna et la compréhension des pieux prédécesseurs sera supprimée ⚠",
-                style: TextStyle(fontSize: 16),
-              ),
             ],
           ),
         ),

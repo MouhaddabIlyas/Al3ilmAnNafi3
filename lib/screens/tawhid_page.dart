@@ -72,10 +72,10 @@ class _TawhidPageState extends State<TawhidPage> {
                         // Green message box inside the white container
                         if (_isBoxVisible)
                           Container(
-                            color: Colors.green,
+                            color: green,
                             padding: EdgeInsets.all(15),
                             child: Text(
-                              "Cheikh Abderrazak Al Badr : \n\n"
+                              "\nCheikh Abderrazak Al Badr : \n\n"
                               "« Le Tawhid est la pierre angulaire de la prédication des prophètes et des messagers comme Allah تعالى le dit :\n\n"
                               "وَلَقَدْ بَعَثْنَا فِى كُلِّ أُمَّةٍ رَّسُولًا أَنِ ٱعْبُدُوا۟ ٱللَّهَ وَٱجْتَنِبُوا۟ ٱلطَّٰغُوتَ فَمِنْهُم مَّنْ هَدَى ٱللَّهُ وَمِنْهُم مَّنْ حَقَّتْ عَلَيْهِ ٱلضَّلَٰلَةُ فَسِيرُوا۟ فِى ٱلْأَرْضِ فَٱنظُرُوا۟ كَيْفَ كَانَ عَٰقِبَةُ ٱلْمُكَذِّبِينَ\n\n"
                               "16 : 36 - Nous avons envoyé dans chaque communauté un Messager, [pour leur dire]: \"Adorez Allah et écartez-vous du Tagut\". Alors Allah en guida certains, mais il y en eut qui ont été destinés a l'égarement. Parcourez donc la terre, et regardez quelle fut la fin de ceux qui traitaient [Nos messagers] de menteurs.",
@@ -115,7 +115,7 @@ class _TawhidPageState extends State<TawhidPage> {
             child: IconButton(
               icon: Icon(
                 _isBoxVisible ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                color: _isBoxVisible ? Colors.white : Colors.green, // White if visible, green if hidden
+                color: _isBoxVisible ? Colors.white : green, // White if visible, green if hidden
                 size: 30,
               ),
               onPressed: () {

@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => RegisterPage(),
         '/video_page': (context) => VideoPage(),
         '/page1': (context) => TawhidPage(), //ThemePage(
-            //theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
+        //theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
         '/page2': (context) => ThemePage(
             theme: "Prière", videosPath: "", imagePath: "assets/images/2.jpg"),
         '/page3': (context) => ThemePage(
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
             videosPath: "",
             imagePath: "assets/images/7.jpg"),
         '/page8': (context) => ThemePage(
-            theme: "Messager et Prophète",
+            theme: "Prophètes",
             videosPath: "",
             imagePath: "assets/images/8.jpg"),
         '/page9': (context) => ThemePage(
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
             videosPath: "",
             imagePath: "assets/images/9.jpg"),
         '/page10': (context) => ThemePage(
-            theme: "Les Compagnons",
+            theme: "Compagnons",
             videosPath: "",
             imagePath: "assets/images/10.jpg"),
         '/page11': (context) => ThemePage(
@@ -101,25 +101,17 @@ class MyApp extends StatelessWidget {
             videosPath: "",
             imagePath: "assets/images/19.jpg"),
         '/page20': (context) => ThemePage(
-            theme: "Les noms d’Allah",
+            theme: "99 Noms",
             videosPath: "",
             imagePath: "assets/images/20.jpg"),
         '/page21': (context) => ThemePage(
-            theme: "Les Madhab",
-            videosPath: "",
-            imagePath: "assets/images/21.jpg"),
+            theme: "Femmes", videosPath: "", imagePath: "assets/images/21.jpg"),
         '/page22': (context) => ThemePage(
-            theme: "Les femmes",
-            videosPath: "",
-            imagePath: "assets/images/22.jpg"),
+            theme: "Voyage", videosPath: "", imagePath: "assets/images/22.jpg"),
         '/page23': (context) => ThemePage(
-            theme: "Le voyage",
-            videosPath: "",
-            imagePath: "assets/images/23.jpg"),
+            theme: "Signes", videosPath: "", imagePath: "assets/images/23.jpg"),
         '/page24': (context) => ThemePage(
-            theme: "Signe fin des temps",
-            videosPath: "",
-            imagePath: "assets/images/24.jpg"),
+            theme: "Adkars", videosPath: "", imagePath: "assets/images/24.jpg"),
         '/page25': (context) => ThemePage(
             theme: "Adkars", videosPath: "", imagePath: "assets/images/25.jpg"),
       },

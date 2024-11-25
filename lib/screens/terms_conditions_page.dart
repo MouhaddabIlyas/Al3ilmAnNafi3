@@ -17,13 +17,22 @@ class TermsAndConditionsPage extends StatelessWidget {
             children: [
               const Center(
                 child: Text(
-                  "Notre But",
+                  "Notre objectif",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.orange,
                   ),
                 ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                "\"Élever la parole d’Allah\"",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Color(0xFF029933),
+                ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               const Text(
@@ -69,11 +78,9 @@ class TermsAndConditionsPage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               const Text(
-                "Conditions à respecter :\n\n"
-                "🔺Interdiction de publier des vidéos de Fitna (terrorisme, sectarisme etc…)\n\n"
-                "🔺Pas de vidéo de plus de 3 minutes\n\n"
-                "🔺Au bout de 2 vidéos supprimées de votre compte vous serez banni de la plate-forme\n\n"
-                "⚠ Toute vidéo en contradiction avec le Coran, la sunna et la compréhension des pieux prédécesseurs sera supprimée ⚠",
+                "Conditions de partage des vidéos :\n\n"
+                "🟢 La vidéo acceptée : Le savant/ étudiant en science - le thème doiventt être est en relation avec la vidéo.\n\n"
+                "🔴 La vidéo refusée : Le savant/ étudiant en science n’est pas en relation avec la vidéo et/ou le thème.\n\n",
                 style: TextStyle(fontSize: 16),
               ),
             ],
