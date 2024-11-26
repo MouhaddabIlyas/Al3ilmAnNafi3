@@ -79,7 +79,7 @@ class TermsAndConditionsPage extends StatelessWidget {
               const SizedBox(height: 10),
               const Text(
                 "Conditions de partage des vidéos :\n\n"
-                "🟢 La vidéo acceptée : Le savant/ étudiant en science - le thème doiventt être est en relation avec la vidéo.\n\n"
+                "🟢 La vidéo acceptée : Le savant/ étudiant en science - le thème doivent être est en relation avec la vidéo.\n\n"
                 "🔴 La vidéo refusée : Le savant/ étudiant en science n’est pas en relation avec la vidéo et/ou le thème.\n\n",
                 style: TextStyle(fontSize: 16),
               ),

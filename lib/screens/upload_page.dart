@@ -29,11 +29,18 @@ class _UploadPageState extends State<UploadPage> {
   List<String> selectedThemes = [];
   File? _thumbnail;
   String? selectedScholar;
+  String? selectedImam;
+
+  bool isScholarExpanded = false;
+  bool isImamExpanded = false;
+  bool isCheikhSelected = false; // To track if "Cheikh" is selected
+  bool isImamSelected = false; // To track if "Imam" is selected
 
   bool isThemeExpanded = false;
-  bool isScholarExpanded = false;
 
   bool isConsented = false;
+
+  bool _isDialogOpen = false;
 
   @override
   void dispose() {
@@ -169,62 +176,164 @@ class _UploadPageState extends State<UploadPage> {
                     ),
                   const SizedBox(height: 20),
 
+                  // Thumbnail Selector
+                  const Text('Selectionnez un intervenant',
+                      style: TextStyle(fontSize: 16)),
+                  const SizedBox(height: 10),
                   // Scholar Selector
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      // Scholar Selector text
-                      const Expanded(
-                        child: Text(
-                          'Sélectionnez 1 Cheikh',
-                          style: TextStyle(fontSize: 16),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          isScholarExpanded
-                              ? Icons.arrow_drop_up
-                              : Icons.arrow_drop_down,
-                          size: 30,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            isScholarExpanded = !isScholarExpanded;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                  if (isScholarExpanded)
-                    Wrap(
-                      spacing: 8.0,
-                      runSpacing: 8.0,
-                      children: scholars.map((scholar) {
-                        return ChoiceChip(
-                          label: Text(
-                            scholar,
-                            style: const TextStyle(fontSize: 10),
-                          ),
-                          selected: selectedScholar == scholar,
-                          onSelected: (selected) {
+                  Align(
+                    alignment: Alignment.center,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Checkbox(
+                          value: isCheikhSelected,
+                          onChanged: (value) {
                             setState(() {
-                              selectedScholar = selected ? scholar : null;
+                              isCheikhSelected = value!;
+                              if (value) {
+                                isImamSelected = false;
+                              }
                             });
                           },
-                          selectedColor: Colors.green,
-                          labelStyle: TextStyle(
-                            color: selectedScholar == scholar
-                                ? Colors.white
-                                : Colors.black,
-                          ),
-                        );
-                      }).toList(),
+                          activeColor: Colors.green, // Green when selected
+                        ),
+                        const Text("Savant"),
+                        const SizedBox(width: 20),
+                        Checkbox(
+                          value: isImamSelected,
+                          onChanged: (value) {
+                            setState(() {
+                              isImamSelected = value!;
+                              if (value) {
+                                isCheikhSelected = false;
+                              }
+                            });
+                          },
+                          activeColor: Colors.green, // Green when selected
+                        ),
+                        const Text("Imam /\nTalibu Ilm"),
+                      ],
                     ),
+                  ),
+                  const SizedBox(height: 20),
+
+                  // Show Scholar Widget if Cheikh is selected
+                  if (isCheikhSelected) ...[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Expanded(
+                          child: Text(
+                            'Sélectionnez 1 Savant',
+                            style: TextStyle(fontSize: 16),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            isScholarExpanded
+                                ? Icons.arrow_drop_up
+                                : Icons.arrow_drop_down,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isScholarExpanded = !isScholarExpanded;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                    if (isScholarExpanded)
+                      Wrap(
+                        spacing: 8.0,
+                        runSpacing: 8.0,
+                        children: scholars.map((scholar) {
+                          return ChoiceChip(
+                            label: Text(
+                              scholar,
+                              style: const TextStyle(fontSize: 10),
+                            ),
+                            selected: selectedScholar == scholar,
+                            onSelected: (selected) {
+                              setState(() {
+                                selectedScholar = selected ? scholar : null;
+                              });
+                            },
+                            selectedColor: Colors.green,
+                            labelStyle: TextStyle(
+                              color: selectedScholar == scholar
+                                  ? Colors.white
+                                  : Colors.black,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                  ],
+
+                  // Show Imam Widget if Imam is selected
+                  if (isImamSelected) ...[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Expanded(
+                          child: Text(
+                            'Sélectionnez 1 Imam',
+                            style: TextStyle(fontSize: 16),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(
+                            isImamExpanded
+                                ? Icons.arrow_drop_up
+                                : Icons.arrow_drop_down,
+                            size: 30,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isImamExpanded = !isImamExpanded;
+                            });
+                          },
+                        ),
+                      ],
+                    ),
+                    if (isImamExpanded)
+                      Wrap(
+                        spacing: 8.0,
+                        runSpacing: 8.0,
+                        children: imams.map((imam) {
+                          return Material(
+                            color: Colors
+                                .transparent, // Make the background transparent
+                            child: ChoiceChip(
+                              label: Text(
+                                imam,
+                                style: const TextStyle(fontSize: 10),
+                              ),
+                              selected: selectedImam == imam,
+                              onSelected: (selected) {
+                                setState(() {
+                                  selectedImam = selected ? imam : null;
+                                });
+                              },
+                              selectedColor:
+                                  Colors.green, // Green for selected Imam
+                              labelStyle: TextStyle(
+                                color: selectedImam == imam
+                                    ? Colors.white
+                                    : Colors.black,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                  ],
                   const SizedBox(height: 20),
 
                   // Thumbnail Selector
-                  const Text('Selectionnez une image pour la vidéo',
+                  const Text('Selectionnez une couverture pour votre vidéo',
                       style: TextStyle(fontSize: 16)),
                   const SizedBox(height: 10),
                   Center(
@@ -239,7 +348,7 @@ class _UploadPageState extends State<UploadPage> {
                           border: Border.all(color: Colors.grey),
                         ),
                         child: _thumbnail == null
-                            ? const Center(child: Text('Choisir image'))
+                            ? const Center(child: Text('Choisir couverture'))
                             : ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
                                 child: Image.file(
@@ -278,13 +387,55 @@ class _UploadPageState extends State<UploadPage> {
                         if (_formKey.currentState!.validate() &&
                             selectedThemes.isNotEmpty &&
                             _thumbnail != null &&
-                            selectedScholar != null && isConsented) {
+                            (selectedScholar != null || selectedImam != null) &&
+                            (isCheikhSelected || isImamSelected) &&
+                            isConsented) {
                           // Proceed to upload video and thumbnail
                           print(
                               'Uploading video with title: ${_titleController.text}');
                           print('Selected Themes: $selectedThemes');
-                          print('Selected Scholar: $selectedScholar');
+                          if (selectedScholar != null && isCheikhSelected) {
+                            print('Selected Scholar: $selectedScholar');
+                          } else {
+                            print('Selected Imam: $selectedImam');
+                          }
+                          
                           print('Thumbnail Path: ${_thumbnail!.path}');
+                          Navigator.of(context).pushNamed('/home');
+                  //Navigator.pushReplacementNamed(context, '/home');
+                  // Dialog TEST
+                  setState(() {
+                    _isDialogOpen = true;
+                  });
+                  showDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                        backgroundColor: Colors.transparent,
+                        child: Container(
+                          color: Colors.white,
+                          child: Container(
+                            height: MediaQuery.of(context).size.height / 3,
+                            child: Center(
+                              child: Text(
+                                "Votre vidéo a été envoyée pour être visualisée par notre équipe administrative avant d'être approuvée. Cela peut prendre du temps. Vous pouvez continuer à utiliser l'application.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ).then((_) {
+                    setState(() {
+                      _isDialogOpen = false;
+                    });
+                  });
+                  // Dialog TEST END
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(

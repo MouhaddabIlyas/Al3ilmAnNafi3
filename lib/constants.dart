@@ -88,4 +88,12 @@ List<String> scholars = const [
   "Cheikh Zayd Al Madkhali / الشيخ زيد المدخلي"
 ];
 
+List<String> imams = [
+  "Cheikh Djily Cheikh Abou Maymouna / الشيخ جيلي شيخ أبو ميمونة",
+  "Cheikh Ismaïl Ibn Hādī / الشيخ اسماعيل بن هادي",
+  "Cheikh Mehdi Ben naceur / الشيخ مهدي بن ناصر",
+  "Cheikh Samy Philippe Chaouche / الشيخ سامي بن عبد الكريم الشاوش",
+  "Cheikh Tahir Abu Sany / الشيخ طاهر أبو سني"
+];
+
 bool isAdmin = true;

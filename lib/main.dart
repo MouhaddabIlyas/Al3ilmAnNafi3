@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projet/constants.dart';
+import 'package:projet/screens/admin_page.dart';
+import 'package:projet/screens/admin_video_page.dart';
 import 'package:projet/screens/home_screen.dart';
 import 'package:projet/screens/login_screen.dart';
 import 'package:projet/screens/profile_screen.dart';
@@ -34,6 +36,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => LoginPage(),
         '/register': (context) => RegisterPage(),
         '/video_page': (context) => VideoPage(),
+        '/adminConsole': (context) => AdminPage(),
+        '/admin_video_page': (context) => AdminVideoPage(),
         '/page1': (context) => TawhidPage(), //ThemePage(
         //theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
         '/page2': (context) => ThemePage(

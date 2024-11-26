@@ -32,6 +32,8 @@ class _LoginPageState extends State<LoginPage> {
         const SnackBar(content: Text('Veuillez remplir tous les champs.')),
       );
     } else {
+      Navigator.pushReplacementNamed(context, '/adminConsole');
+      /*
       Navigator.pushReplacementNamed(context, '/home');
       // Dialog TEST
       setState(() {
@@ -66,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
         });
       });
       // Dialog TEST END
-    }
+    */}
   }
 
   void _createAccount() {
