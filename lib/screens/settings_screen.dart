@@ -33,7 +33,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         _isDialogOpen = false;
       });
     });
-    // END COPY HERE
   }
 
   @override

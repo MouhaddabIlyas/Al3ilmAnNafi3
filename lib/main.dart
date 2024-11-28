@@ -18,7 +18,6 @@ import 'package:projet/screens/video_screen.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  // Lock the app to portrait mode only
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
@@ -38,8 +37,8 @@ class MyApp extends StatelessWidget {
         '/video_page': (context) => VideoPage(),
         '/adminConsole': (context) => AdminPage(),
         '/admin_video_page': (context) => AdminVideoPage(),
-        '/page1': (context) => TawhidPage(), //ThemePage(
-        //theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
+        '/page1': (context) => TawhidPage(), 
+        //ThemePage(theme: "Tawhid", videosPath: "", imagePath: "assets/images/1.jpg"),
         '/page2': (context) => ThemePage(
             theme: "Prière", videosPath: "", imagePath: "assets/images/2.jpg"),
         '/page3': (context) => ThemePage(
@@ -121,7 +120,6 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        //textTheme: GoogleFonts.openSansTextTheme(Theme.of(context).textTheme),
         // Important note : if you encounter problems with the text them use this version of google_fonts: ^5.0.0
         textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
       ),
@@ -141,7 +139,6 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     TermsAndConditionsPage(),
-    //SettingsScreen(), hadi ghankhod mnha le showDialog method
     HomeScreen(),
     //UploadPage(videoPath: "videoPath"),
     ProfileScreen(),

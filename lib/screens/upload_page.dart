@@ -33,8 +33,8 @@ class _UploadPageState extends State<UploadPage> {
 
   bool isScholarExpanded = false;
   bool isImamExpanded = false;
-  bool isCheikhSelected = false; // To track if "Cheikh" is selected
-  bool isImamSelected = false; // To track if "Imam" is selected
+  bool isCheikhSelected = false;
+  bool isImamSelected = false;
 
   bool isThemeExpanded = false;
 
@@ -65,7 +65,7 @@ class _UploadPageState extends State<UploadPage> {
       body: Padding(
         padding: const EdgeInsets.only(top: 40.0, left: 16, right: 16),
         child: ScrollConfiguration(
-          behavior: NoGlowScrollBehavior(), // Apply the custom scroll behavior
+          behavior: NoGlowScrollBehavior(),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -120,7 +120,6 @@ class _UploadPageState extends State<UploadPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      // Theme Selector text
                       const Expanded(
                         child: Text(
                           'Selectionnez 1 à 3 thèmes',
@@ -196,7 +195,7 @@ class _UploadPageState extends State<UploadPage> {
                               }
                             });
                           },
-                          activeColor: Colors.green, // Green when selected
+                          activeColor: Colors.green,
                         ),
                         const Text("Savant"),
                         const SizedBox(width: 20),
@@ -210,7 +209,7 @@ class _UploadPageState extends State<UploadPage> {
                               }
                             });
                           },
-                          activeColor: Colors.green, // Green when selected
+                          activeColor: Colors.green,
                         ),
                         const Text("Imam /\nTalibu Ilm"),
                       ],
@@ -306,7 +305,7 @@ class _UploadPageState extends State<UploadPage> {
                         children: imams.map((imam) {
                           return Material(
                             color: Colors
-                                .transparent, // Make the background transparent
+                                .transparent,
                             child: ChoiceChip(
                               label: Text(
                                 imam,
@@ -319,7 +318,7 @@ class _UploadPageState extends State<UploadPage> {
                                 });
                               },
                               selectedColor:
-                                  Colors.green, // Green for selected Imam
+                                  Colors.green,
                               labelStyle: TextStyle(
                                 color: selectedImam == imam
                                     ? Colors.white

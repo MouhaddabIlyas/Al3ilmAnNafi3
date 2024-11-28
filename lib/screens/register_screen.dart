@@ -19,8 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _isPasswordVisible = false;
   bool _isVerifyPasswordVisible = false;
   bool _isDialogOpen = false;
-  String _selectedProfilePicture =
-      ''; // Default is empty, will show only account icon initially
+  String _selectedProfilePicture = '';
 
   @override
   void dispose() {
@@ -99,8 +98,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisSpacing: 10,
               ),
               itemCount: 27,
-              physics:
-                  BouncingScrollPhysics(), // Re-enabled the scroll glow effect
+              physics: BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
@@ -113,7 +111,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: CircleAvatar(
                     backgroundImage: AssetImage(
                         'assets/images/profiles/profile${index + 1}.PNG'),
-                        backgroundColor: Colors.white,
+                    backgroundColor: Colors.white,
                   ),
                 );
               },
@@ -129,7 +127,6 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        // Wrap in SingleChildScrollView to prevent overflow
         child: Padding(
           padding: const EdgeInsets.only(
               top: 40.0, bottom: 16.0, left: 16.0, right: 16.0),
@@ -156,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 16),
 
-              // Email Field (new)
+              // Email Field
               TextField(
                 controller: _emailController,
                 decoration: InputDecoration(
@@ -201,7 +198,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 16),
 
-              // Verify Password Field (same style as Password)
+              // Verify Password Field
               TextField(
                 controller: _verifyPasswordController,
                 obscureText: !_isVerifyPasswordVisible,
@@ -230,38 +227,34 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               const SizedBox(height: 32),
 
-              // Profile Picture Section with CircleAvatar Border
+              // Profile Picture Section
               GestureDetector(
                 onTap: _selectProfilePicture,
                 child: Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Colors.black, // Thin black border
-                      width: 2, // Adjust the width of the border
+                      color: Colors.black,
+                      width: 2,
                     ),
                   ),
                   child: CircleAvatar(
-                    radius: 60, // Increase the radius for a larger CircleAvatar
+                    radius: 60,
                     backgroundImage: _selectedProfilePicture.isEmpty
                         ? null
                         : AssetImage(_selectedProfilePicture),
-                    backgroundColor:
-                        Colors.white, // White background for default icon
+                    backgroundColor: Colors.white,
                     child: _selectedProfilePicture.isEmpty
                         ? Icon(
                             Icons.account_circle,
-                            size:
-                                70, // Increase the size of the icon to fit the circle
-                            color: Colors.black, // Black icon
+                            size: 70,
+                            color: Colors.black,
                           )
                         : null,
                   ),
                 ),
               ),
               const SizedBox(height: 16),
-
-              // Create Account Text
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
